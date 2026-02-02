@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions:
+  pull-requests: write
+  deployments: write
+  contents: read
+
+jobs:
+  build:
+    name: Deploy web3ready.org
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup
+        uses: LumeWeb/workflows/.github/actions/setup-all@develop
+      - name: Build
+        run: pnpm build
+      - name: Deploy to Cloudflare Pages
+        id: deploy_cf
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=web3ready-org
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - uses: mshick/add-pr-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          message: |
+            web3ready.org has been deployed to [Staging](${{ steps.deploy_cf.outputs.deployment-url }}).

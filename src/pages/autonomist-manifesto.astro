@@ -1,0 +1,78 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro';
+import { Section } from '@/components/ui/section';
+import { PageHeader } from '@/components/content/PageHeader';
+import { PageFooterNav, LINK_DIRECTION } from '@/components/content/PageFooterNav';
+---
+
+<MainLayout title="The Autonomist Manifesto | web3ready">
+  <main class="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
+    <div class="max-w-[720px] w-full flex flex-col">
+      <PageHeader
+        title="The Autonomist Manifesto"
+        showDivider={true}
+      />
+      <p class="font-mono text-cyan text-sm uppercase tracking-widest mt-4 mb-12">
+        Circulated publicly&mdash;January 25, 2025
+      </p>
+
+      <Section variant="medium" className="!px-0 !py-0 space-y-6 text-white/80 leading-relaxed font-light">
+        <p>
+          <em>Reprinted here with attribution for educational purposes.</em>
+        </p>
+
+        <p class="text-xl font-medium text-slate-100 leading-tight">
+          We, the Autonomists, declare the age of dependence over. Sovereignty is no longer an abstract ideal but a practice&mdash;a discipline born of code, community, and conviction.
+        </p>
+
+        <p>
+          Autonomy is not isolation. It is interdependence without subservience, collaboration without coercion. It is the mutual recognition of agency: a shared refusal to be owned, controlled, or contained.
+        </p>
+
+        <p>
+          Autonomy begins with the individual and radiates outward. It is the self-governed node in a network, the sovereign signal in a sea of noise. It is action untethered from central command, yet aligned by shared principles, common goals, and the gravitational pull of collective purpose.
+        </p>
+
+        <p class="text-primary font-mono text-lg border-l-2 border-primary pl-4 my-8">
+          We reject the false choice between chaos and control. Autonomy is neither the chaos of disconnected fragments nor the stifling order of hierarchical power. It is the emergent harmony of systems that self-organize, adapt, and thrive.
+        </p>
+
+        <p>
+          To be autonomous is to be resilient. It is to build for failure and recover stronger. It is to see fragility not as a weakness to fear but as a teacher to learn from. Autonomy is not perfection; it is iteration. It is the perpetual refinement of freedom.
+        </p>
+
+        <p>
+          Autonomy is the power to say yes and the courage to say no. It is the ability to walk away, to fork, to choose a different path. It is the refusal to be trapped in systems that exploit, extract, and erase.
+        </p>
+
+        <p>
+          The tools of autonomy are not weapons but instruments: protocols, smart contracts, decentralized networks, mutual aid, and cultural commons. These tools empower us to coordinate without consent from distant authorities, to transact without permission, to create without compromise.
+        </p>
+
+        <p>
+          We are not beholden to borders, corporations, or kings. We owe allegiance only to each other&mdash;and to the ideals that bind us: trust, transparency, and the pursuit of shared prosperity.
+        </p>
+
+        <p>
+          Autonomy is not given; it is taken. It is claimed in the lines of code we write, the communities we nurture, and the worlds we imagine. It is the product of action, not permission.
+        </p>
+
+        <p class="font-mono text-primary mt-8">
+          We are Autonomists. We are sovereign. We are many.
+        </p>
+
+        <p class="font-mono text-primary">
+          Take the helm.
+        </p>
+      </Section>
+
+      <PageFooterNav
+        backLink={{ href: '/manifesto', text: 'Back to Manifesto', variant: 'default' }}
+        forwardLinks={[
+          { href: '/cypherpunk-manifesto', text: 'Cypherpunk Manifesto', variant: 'default', direction: LINK_DIRECTION.BACKWARD },
+          { href: '/philosophy', text: 'Principles', variant: 'primary' },
+        ]}
+      />
+    </div>
+  </main>
+</MainLayout>

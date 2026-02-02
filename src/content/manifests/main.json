@@ -1,0 +1,153 @@
+{
+  "principles": [
+    {
+      "id": "01",
+      "title": "Privacy is baseline",
+      "definition": "Not a feature. Not optional. Encryption is how open societies work."
+    },
+    {
+      "id": "02",
+      "title": "We are sovereign nodes",
+      "definition": "You own your agency. Wallet, device, person, service. The power to choose. The power to leave. The power to fork."
+    },
+    {
+      "id": "03",
+      "title": "No choke points",
+      "definition": "AWS. Google. Azure. Cloudflare. ICANN. Any can flick a switch. We won't build castles on their infrastructure."
+    },
+    {
+      "id": "04",
+      "title": "We are Cypherpunks",
+      "definition": "We write code. We publish it. We build systems that can't be shut down."
+    },
+    {
+      "id": "05",
+      "title": "Web3 is for users, not builders",
+      "definition": "Not your product. Not your attention. Not your data. You are the point."
+    },
+    {
+      "id": "06",
+      "title": "We reject capture",
+      "definition": "VC rent-seeking. DINO projects. EEE tactics. We build tools, not toll booths."
+    },
+    {
+      "id": "07",
+      "title": "Access is a right",
+      "definition": "The last mile is the hardest mile. We build for real users."
+    },
+    {
+      "id": "08",
+      "title": "Free speech is non-negotiable",
+      "definition": "Open discourse. No platform judges."
+    },
+    {
+      "id": "09",
+      "title": "Bitcoin doesn't care",
+      "definition": "It just works. Don't worship money. Use it."
+    },
+    {
+      "id": "10",
+      "title": "IP enforcement is ending",
+      "definition": "Open P2P makes it impossible. Patronage replaces licensing."
+    },
+    {
+      "id": "11",
+      "title": "Resilience over perfection",
+      "definition": "Build for failure. Fragility teaches. Emergent harmony beats chaos and control."
+    },
+    {
+      "id": "12",
+      "title": "Anti-idolatry",
+      "definition": "Don't worship these words. Fork them. Challenge them."
+    }
+  ],
+  "story": [
+    {
+      "id": "inheritance",
+      "title": "THE INHERITANCE",
+      "summary": "The 1993 warning we ignored",
+      "content": "Eric Hughes wrote: \"Privacy is necessary for an open society.\" He warned us we couldn't expect governments or corporations to grant us privacy. We had to defend it ourselves. Cypherpunks write code.\n\nInformation doesn't just want to be free. It longs to be free.\n\nWhat he called \"anonymous transaction systems\" is now blockchains. The technology caught up. The ethos didn't.\n\nWe didn't listen. By the mid-2000s, platforms grew. By the 2010s, they dominated. Users became products."
+    },
+    {
+      "id": "resonance",
+      "title": "THE RESONANCE",
+      "summary": "We weren't alone in thinking this",
+      "content": "Later, work we found articulated what we felt:\n\n\"Sovereignty is no longer an abstract ideal but a practice - a discipline born of code.\"\n\n\"Autonomy is not isolation. It is interdependence without subservience.\"\n\n\"The power to walk away. The power to fork. The power to choose a different path.\"\n\nWe weren't alone."
+    },
+    {
+      "id": "the-now",
+      "title": "THE NOW",
+      "summary": "Thirty years of evidence. Time to build.",
+      "content": "We've watched Big Tech consolidate. AWS. Google. Azure. Cloudflare. ICANN. Any can flick a switch.\n\nWe've watched web3 become a casino. Money over freedom. Scams over solutions.\n\nWe've watched VC capture. For-profit focus turned public infrastructure into extractive platforms.\n\nWe're not here to repeat warnings. We're here to build.\n\nThese manifestos informed our thinking:\n• A Cypherpunk's Manifesto (1993) - Eric Hughes\n• The Autonomist Manifesto (2025)"
+    }
+  ],
+  "problems": [
+    {
+      "id": "infrastructure",
+      "title": "INFRASTRUCTURE CAPTURE",
+      "summary": "Three companies can flick the switch",
+      "content": "AWS. Google. Azure. Cloudflare. ICANN.\n\nAny of them can flick a switch tomorrow. Most of what we call \"web3\" would disappear.\n\nWe're not ready."
+    },
+    {
+      "id": "vc-extraction",
+      "title": "VC EXTRACTION",
+      "summary": "For-profit focus killed the ethos",
+      "content": "Venture capital funded R&D. That's valuable.\n\nBut extraction overshadowed the good. For-profit focus turned web3 into a new walled garden.\n\nPublic infrastructure cannot be funded with extractive capital."
+    },
+    {
+      "id": "dino",
+      "title": "DINO PROJECTS",
+      "summary": "Decentralized In Name Only",
+      "content": "Red flags:\n\n- Claims decentralization, runs on AWS\n- VC-owned, calls itself community\n- Token sold as ownership - it's not\n- Closed-source \"trust me bro\"\n- Business licenses in DeFi"
+    },
+    {
+      "id": "casino",
+      "title": "THE CASINO",
+      "summary": "Money over mission",
+      "content": "DeFi became gambling. NFTs became speculation.\n\n\"Just trust me bro\" replaced trustlessness."
+    },
+    {
+      "id": "access",
+      "title": "THE ACCESS GAP",
+      "summary": "Most decentralized network means nothing",
+      "content": "Infrastructure exists. The access layer is broken.\n\nThe last mile is the hardest mile.\n\nAnd frankly, it's a joke."
+    }
+  ],
+  "path": [
+    {
+      "id": "what-we-build",
+      "title": "WHAT WE BUILD",
+      "summary": "Tools, not toll booths",
+      "content": "We publish code. We build systems that can't be shut down.\n\nInfrastructure that doesn't depend on Big Tech. Access layers that work for real users. Protocols that resist capture."
+    },
+    {
+      "id": "how-we-fund",
+      "title": "HOW WE FUND",
+      "summary": "Public goods deserve public funding",
+      "content": "Not extraction. Not rent-seeking. Not VC returns.\n\nIf we can't sustain without exploiting users, we're doing it wrong."
+    },
+    {
+      "id": "success",
+      "title": "SUCCESS METRICS",
+      "summary": "If web3 is invisible, it worked",
+      "content": "If you use web3 and don't notice it's different from web2 - if it's boring, if it just works - only then we succeeded.\n\nThe standard, not the exception."
+    }
+  ],
+  "credits": [
+    {
+      "title": "Cypherpunk Manifesto",
+      "year": "1993",
+      "author": "Eric Hughes",
+      "role": "Foundation",
+      "url": "/cypherpunk-manifesto"
+    },
+    {
+      "title": "Autonomist Manifesto",
+      "year": "2025",
+      "author": "Shared publicly",
+      "role": "Resonance",
+      "url": "/autonomist-manifesto",
+      "useBy": false
+    }
+  ]
+}

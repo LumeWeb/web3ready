@@ -1,0 +1,66 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro';
+import { Button } from '@/components/ui/button';
+import { Section } from '@/components/ui/section';
+import { PageHeader } from '@/components/content/PageHeader';
+import { PageFooterNav } from '@/components/content/PageFooterNav';
+---
+
+<MainLayout title="About - web3ready">
+  <main class="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
+    <div class="max-w-[840px] w-full flex flex-col">
+      <Section variant="medium" className="!px-0 !py-0 mb-16">
+        <PageHeader title="ABOUT" showDivider={true} />
+        <p className="font-mono text-cyan text-sm uppercase tracking-widest mt-4">
+          <a className="hover:text-primary transition-colors" href="https://lumeweb.com" target="_blank" rel="noopener noreferrer">
+            → A Lume project
+          </a>
+        </p>
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0 space-y-8 mb-20">
+        <p class="text-2xl md:text-3xl font-medium text-slate-100 leading-tight tracking-tight">
+          web3ready is a Lume community project.
+        </p>
+        <p class="text-2xl md:text-3xl font-medium text-slate-100 leading-tight tracking-tight">
+          We believe web3 can be better than web2. But not like this.
+        </p>
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0 mb-24">
+        <ul class="space-y-6 font-mono text-lg md:text-xl text-cyan uppercase tracking-widest">
+          <li class="flex items-center gap-4">
+            <span class="text-primary">&gt;</span> Open source
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="text-primary">&gt;</span> Open to critique
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="text-primary">&gt;</span> Not a sales funnel
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="text-primary">&gt;</span> A public good
+          </li>
+        </ul>
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0">
+        <h2 class="font-mono text-primary text-2xl font-bold uppercase mb-6">
+          Our Mission
+        </h2>
+        <div class="space-y-6 text-slate-300 leading-relaxed text-lg">
+          <p>
+            We're building a resource for developers and users who want to understand the difference between real decentralization and marketing hype. The web3 space is filled with projects that claim to be decentralized while maintaining centralized control.
+          </p>
+          <p>
+            Our goal is to articulate the principles that separate real decentralization from marketing hype.
+          </p>
+        </div>
+      </Section>
+
+      <PageFooterNav
+        backLink={{ href: '/', text: 'Home', variant: 'default' }}
+      />
+    </div>
+  </main>
+</MainLayout>

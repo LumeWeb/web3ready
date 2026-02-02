@@ -1,0 +1,51 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro';
+import { PageHeader } from '@/components/content/PageHeader';
+import { CreditsSection } from '@/components/content/CreditsSection';
+import { PageFooterNav } from '@/components/content/PageFooterNav';
+import { getPrinciples, getCredits } from '@/data/manifesto';
+import type { Principle, Credit } from '@/content/config';
+import { PrincipleCardCollapsible } from '@/components/manifesto/PrincipleCardCollapsible';
+import { GITHUB_URL } from '@/config/navigation';
+
+const principles = await getPrinciples();
+const credits = await getCredits();
+---
+
+<MainLayout title="Philosophy | web3ready">
+  <main class="flex-1 justify-center py-16">
+    <div class="flex flex-col w-full max-w-[720px] px-6">
+      <div class="flex flex-col gap-6 mb-16">
+        <PageHeader
+          title="The Principles"
+          subtitle="These principles guide everything we write."
+        />
+        <p class="text-cyan text-lg font-medium leading-relaxed max-w-xl">
+          <a className="underline underline-offset-4 decoration-cyan/50 hover:decoration-cyan" href={GITHUB_URL}>
+            Challenge them on GitHub.
+          </a>
+        </p>
+      </div>
+
+      <!-- The 12 Principles -->
+      <div class="space-y-4 mb-24">
+        {principles.map((principle) => (
+          <PrincipleCardCollapsible principle={principle} />
+        ))}
+      </div>
+
+      <!-- Credits -->
+      <div class="mb-24">
+        <h2 class="font-mono text-primary text-xl font-bold mb-6">CREDITS</h2>
+        <CreditsSection credits={credits} />
+      </div>
+
+      <PageFooterNav
+        backLink={{ href: '/manifesto', text: 'Manifesto', variant: 'default' }}
+        forwardLinks={[
+          { href: GITHUB_URL, text: 'Challenge', variant: 'primary' },
+        ]}
+      />
+    </div>
+  </main>
+</MainLayout>
