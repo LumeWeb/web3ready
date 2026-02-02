@@ -1,0 +1,110 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro';
+import { Section } from '@/components/ui/section';
+import { ThreeBeatHook } from '@/components/content/ThreeBeatHook';
+import { SectionHeader } from '@/components/content/SectionHeader';
+import { CreditsSection } from '@/components/content/CreditsSection';
+import { PageFooterNav } from '@/components/content/PageFooterNav';
+import { CC0Notice } from '@/components/content/CC0Notice';
+import { ManifestoStory } from '@/components/manifesto/ManifestoStory';
+import { ManifestoProblems } from '@/components/manifesto/ManifestoProblems';
+import { ManifestoPath } from '@/components/manifesto/ManifestoPath';
+import { getCredits, getStory, getProblems, getPath } from '@/data/manifesto';
+import { GITHUB_URL } from '@/config/navigation';
+import type { Credit, StorySection, ProblemSection, PathSection } from '@/content/config';
+
+const credits = await getCredits();
+const story = await getStory();
+const problems = await getProblems();
+const path = await getPath();
+---
+
+<MainLayout title="A Better Web | web3ready">
+  <main class="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
+    <div class="max-w-[720px] w-full flex flex-col">
+      <!-- Hook -->
+      <div class="mb-16">
+        <h1 class="font-mono text-primary text-5xl md:text-7xl font-bold leading-none mb-4 uppercase">
+          A Better Web
+        </h1>
+        <div class="h-px w-full bg-primary/40 mb-8"></div>
+      </div>
+
+      <!-- 3-Beat Hook -->
+      <div class="mb-20">
+        <ThreeBeatHook tagline="We are not here to save you." />
+      </div>
+
+      <!-- The Story -->
+      <Section variant="narrow" className="!px-0 !py-0">
+        <SectionHeader
+          title="THE STORY"
+          description="We stood on shoulders. We found resonance. We built on what we learned."
+        />
+        <ManifestoStory story={story} />
+      </Section>
+
+      <!-- The Problems -->
+      <Section variant="narrow" className="!px-0 !py-0 mt-24">
+        <SectionHeader
+          title="THE PROBLEMS"
+          description="We've named the fractures. Here's what we see."
+        />
+        <ManifestoProblems problems={problems} />
+      </Section>
+
+      <!-- The Path -->
+      <Section variant="narrow" className="!px-0 !py-0 mt-24">
+        <SectionHeader
+          title="THE PATH"
+          description="This is what we build. This is how we build."
+        />
+        <ManifestoPath path={path} />
+      </Section>
+
+      <!-- Credits -->
+      <Section variant="narrow" className="!px-0 !py-0 mt-24">
+        <SectionHeader title="CREDITS" description="" />
+        <CreditsSection credits={credits} />
+      </Section>
+
+      <!-- Your Move -->
+      <Section variant="narrow" className="!px-0 !py-0 mt-24">
+        <SectionHeader title="YOUR MOVE" description="" />
+
+        <div class="space-y-6 text-white/80 leading-relaxed font-light">
+          <p>
+            This is a starting point.
+          </p>
+          <p>
+            Fork it. Improve it. Challenge it.
+          </p>
+          <p>
+            We are not a product. We are not a sales funnel. We are a public good, released under CC0.
+          </p>
+          <p>
+            Created by Lume. Maintained by anyone who cares.
+          </p>
+        </div>
+
+        <div className="mt-12 p-6 border border-primary/30 bg-primary/5 rounded-lg">
+          <p className="font-mono text-primary text-xl font-bold mb-4">We are Cypherpunks.</p>
+          <p className="font-mono text-primary text-xl font-bold mb-4">We write code.</p>
+          <p className="font-mono text-primary text-xl font-bold">We build.</p>
+        </div>
+      </Section>
+
+      <!-- Footer Navigation -->
+      <PageFooterNav
+        backLink={{ href: '/', text: 'Home', variant: 'default' }}
+        forwardLinks={[
+          { href: '/philosophy', text: 'Principles', variant: 'primary' },
+          { href: GITHUB_URL, text: 'Challenge', variant: 'default' },
+        ]}
+      />
+
+      <!-- CC0 Notice -->
+      <CC0Notice />
+    </div>
+  </main>
+</MainLayout>

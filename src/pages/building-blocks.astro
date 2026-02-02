@@ -1,0 +1,191 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro';
+import { Table } from '@/components/ui/table';
+import { Section } from '@/components/ui/section';
+import { PageHeader } from '@/components/content/PageHeader';
+import { PageFooterNav } from '@/components/content/PageFooterNav';
+import { Database, Network, Handshake, DollarSign, Globe } from 'lucide-react';
+
+interface BlockchainStep {
+  step: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const steps: BlockchainStep[] = [
+  {
+    step: '1',
+    title: 'DATABASE',
+    description: 'Start with a MySQL database. It\'s your source of truth.',
+    icon: 'database',
+  },
+  {
+    step: '2',
+    title: 'NODES',
+    description: 'Add replication. Now you have two databases both claiming to be correct.',
+    icon: 'network',
+  },
+  {
+    step: '3',
+    title: 'CONSENSUS',
+    description: 'They can\'t trust each other. Need agreement on which writes are valid.',
+    icon: 'handshake',
+  },
+  {
+    step: '4',
+    title: 'ECONOMICS',
+    description: 'Making changes costs something. Spamming becomes expensive.',
+    icon: 'dollar',
+  },
+  {
+    step: '5',
+    title: 'NO OPERATOR',
+    description: 'Remove the operator. No single person controls the database.',
+    icon: 'globe',
+  },
+];
+
+const iconComponents: Record<string, typeof Database> = {
+  database: Database,
+  network: Network,
+  handshake: Handshake,
+  dollar: DollarSign,
+  globe: Globe,
+};
+---
+
+<MainLayout title="web3ready Building Blocks - Technical Guide">
+  <main class="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
+    <div class="w-full flex flex-col">
+      <Section variant="medium" className="!px-0 !py-0 mb-16 max-w-[840px] mx-auto">
+        <PageHeader
+          title="BUILDING BLOCKS"
+          subtitle="Web2 -> Web3 concept mapping"
+          showDivider={true}
+        />
+      </Section>
+
+      <Section variant="medium" breakout className="!px-0 !py-0 mb-16">
+        <div class="max-w-[840px] mx-auto mb-8">
+          <h2 class="font-mono text-primary text-3xl font-bold uppercase mb-8">
+            From Database to Blockchain
+          </h2>
+          <p class="text-slate-300 text-lg">
+            A blockchain starts with a database. Here's how the transformation works:
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+          {steps.map((item) => {
+            const Icon = iconComponents[item.icon];
+            return (
+              <div class="bg-slate-800/50 rounded-lg p-5 border border-slate-700 h-full">
+                <div class="text-cyan-400 mb-4">
+                  <Icon size={28} />
+                </div>
+                <div class="text-cyan-400 font-mono text-sm font-bold mb-3">
+                  {item.step}. {item.title}
+                </div>
+                <div class="text-slate-300 text-sm leading-relaxed">
+                  {item.description}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div class="max-w-[840px] mx-auto">
+          <p class="text-slate-300 text-lg font-medium">
+            A blockchain is just a database with trust removed and consensus added.
+          </p>
+        </div>
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0 mb-24 max-w-[840px] mx-auto">
+        <Table
+          headers={['Web2', 'Web3', 'What Changes']}
+          rows={[
+            [
+              { text: 'S3', variant: 'default' },
+              { text: 'Decentralized storage', variant: 'cyan' },
+              { text: 'Data across many nodes, content-addressed, blockchain-backed', variant: 'default' },
+            ],
+            [
+              { text: 'AWS EC2', variant: 'default' },
+              { text: 'Decentralized compute', variant: 'cyan' },
+              { text: 'Rent compute from a marketplace, not a corporation', variant: 'default' },
+            ],
+            [
+              { text: 'OAuth', variant: 'default' },
+              { text: 'Key-based identity', variant: 'cyan' },
+              { text: 'You prove identity with a key, not a password', variant: 'default' },
+            ],
+            [
+              { text: 'REST', variant: 'default' },
+              { text: 'RPC', variant: 'cyan' },
+              { text: 'Direct method calls to nodes instead of HTTP endpoints', variant: 'default' },
+            ],
+            [
+              { text: 'DNS', variant: 'default' },
+              { text: 'Decentralized naming', variant: 'cyan' },
+              { text: 'Controlled by your key, no central authority', variant: 'default' },
+            ],
+            [
+              { text: 'Stored procedures', variant: 'default' },
+              { text: 'Smart contracts', variant: 'cyan' },
+              { text: 'Code runs on a network, not a single server', variant: 'default' },
+            ],
+          ]}
+        />
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0 mb-24">
+        <h2 class="font-mono text-primary text-3xl font-bold uppercase mb-8">
+          Web3 Data & State
+        </h2>
+        <div class="space-y-6 text-slate-300 leading-relaxed text-lg mb-8">
+          <p>
+            Web3 handles data differently depending on what you need. There are three main approaches:
+          </p>
+        </div>
+        <Table
+          headers={['Type', 'What It Does', 'Good For']}
+          rows={[
+            [
+              { text: 'Blockchain', variant: 'cyan' },
+              { text: 'Orders transactions, everyone agrees on the order', variant: 'default' },
+              { text: 'Money, ownership, agreements', variant: 'default' },
+            ],
+            [
+              { text: 'One-time Payment Storage', variant: 'cyan' },
+              { text: 'Pay once, data stored indefinitely', variant: 'default' },
+              { text: 'Archives, permaweb, long-term preservation', variant: 'default' },
+            ],
+            [
+              { text: 'Web3 Databases', variant: 'cyan' },
+              { text: 'Regular DB operations, verifiable state, pay per write', variant: 'default' },
+              { text: 'Apps, user data, flexible queries', variant: 'default' },
+            ],
+          ]}
+        />
+      </Section>
+
+      <Section variant="medium" className="!px-0 !py-0 max-w-[840px] mx-auto">
+        <h2 class="font-mono text-primary text-3xl font-bold uppercase mb-8">
+          Understanding the Shift
+        </h2>
+        <div class="space-y-6 text-slate-300 leading-relaxed text-lg">
+          <p>
+            The transition from Web2 to Web3 is not merely technological&mdash;it's architectural. Each Web2 concept has a Web3 equivalent that shifts control from centralized entities to decentralized protocols.
+          </p>
+          <p>
+            This mapping serves as a mental model for developers transitioning their skills. The paradigms differ, but the principles of building resilient, user-centric systems remain.
+          </p>
+        </div>
+      </Section>
+
+      <PageFooterNav
+        backLink={{ href: '/', text: 'Home', variant: 'default' }}
+      />
+    </div>
+  </main>
+</MainLayout>
