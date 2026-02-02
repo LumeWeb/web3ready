@@ -13,8 +13,16 @@ export interface CreditItemProps {
 
 function CreditTitle({ title, url }: { title: string; url?: string }) {
   if (url) {
+    try {
+      const parsedUrl = new URL(url, window.location.origin);
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        return <strong className="text-white">{title}</strong>;
+      }
+    } catch {
+      return <strong className="text-white">{title}</strong>;
+    }
     return (
-      <a href={url} className="text-cyan hover:text-primary transition-colors">
+      <a href={url} className="text-cyan hover:text-primary transition-colors" rel="noopener noreferrer">
         <strong className="text-white">{title}</strong>
       </a>
     );

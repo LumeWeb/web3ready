@@ -1,5 +1,5 @@
 import { tv, type VariantProps } from 'tailwind-variants';
-import type { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 
 const button = tv({
   base: 'font-bold uppercase tracking-widest rounded-sm transition-all inline-flex items-center justify-center gap-2',
@@ -23,7 +23,8 @@ const button = tv({
 });
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'href'>,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof ButtonHTMLAttributes<HTMLButtonElement>>,
     VariantProps<typeof button> {
   children: React.ReactNode;
   href?: string;
@@ -34,14 +35,14 @@ export function Button({ variant, size, className, children, href, ...props }: B
 
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <a href={href} className={classes} {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}>
         {children}
       </a>
     );
   }
 
   return (
-    <button className={classes} {...props}>
+    <button className={classes} {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
     </button>
   );

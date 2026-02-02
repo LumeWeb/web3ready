@@ -36,7 +36,7 @@ jobs:
           command: pages deploy dist --project-name=web3ready-org
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - uses: mshick/add-pr-comment@v2
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         with:
           message: |
             web3ready.org has been deployed to [Staging](${{ steps.deploy_cf.outputs.deployment-url }}).

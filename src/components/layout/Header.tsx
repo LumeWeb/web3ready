@@ -26,7 +26,7 @@ function isActive(pathname: string, href: string): boolean {
   if (href === '/') {
     return pathname === '/' || pathname === '/manifesto';
   }
-  return pathname.startsWith(href);
+  return pathname === href || (href !== '/' && pathname.startsWith(href + '/'));
 }
 
 export function Header({ pathname }: HeaderProps) {

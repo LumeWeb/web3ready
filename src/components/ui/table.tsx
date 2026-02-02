@@ -35,10 +35,10 @@ export function Table({ headers, rows, className }: TableProps) {
         </thead>
         <tbody>
           {rows.map((rowCells, rowIndex) => (
-            <tr key={rowIndex} className={row()}>
+            <tr key={`row-${rowIndex}-${rowCells.map(cell => cell.text).join('-')}`} className={row()}>
               {rowCells.map((cellData, cellIndex) => (
                 <td
-                  key={cellIndex}
+                  key={`cell-${rowIndex}-${cellIndex}-${cellData.text}`}
                   className={cellData.variant === 'cyan' ? cellCyan() : cell()}
                 >
                   {cellData.text}

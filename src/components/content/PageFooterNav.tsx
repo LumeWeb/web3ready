@@ -42,7 +42,7 @@ export function PageFooterNav({
     <footer className={cn(pageFooterNav(), className)}>
       {backLink && (
         <a className={getLinkClass(backLink.variant)} href={backLink.href}>
-          {backLink.direction === 'forward' ? `[${backLink.text} →]` : `[← ${backLink.text}]`}
+          {backLink.direction === LINK_DIRECTION.FORWARD ? `[${backLink.text} →]` : `[← ${backLink.text}]`}
         </a>
       )}
       <div className="flex gap-4">
@@ -52,7 +52,7 @@ export function PageFooterNav({
             className={getLinkClass(link.variant)}
             href={link.href}
           >
-            {link.direction === 'backward' ? `[← ${link.text}]` : `[${link.text} →]`}
+            {link.direction === LINK_DIRECTION.BACKWARD ? `[← ${link.text}]` : `[${link.text} →]`}
           </a>
         ))}
       </div>

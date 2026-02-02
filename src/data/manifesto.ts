@@ -11,7 +11,12 @@ import type {
 
 type ManifestoCollection = CollectionEntry<'manifesto'>;
 
+let manifestoCache: ManifestoData | null = null;
+
 async function getManifestData(): Promise<ManifestoData> {
+  if (manifestoCache) {
+    return manifestoCache;
+  }
   const manifests = await getCollection('manifesto');
   const manifest = manifests.find((entry) => entry.id === 'main');
   
@@ -19,32 +24,32 @@ async function getManifestData(): Promise<ManifestoData> {
     throw new Error('Manifest data not found in collection');
   }
   
-  return manifest.data as ManifestoData;
+  const data = manifest.data as ManifestoData;
+  manifestoCache = data;
+  return data;
 }
 
-let manifestoCache: ManifestoData | null = null;
-
 export async function getPrinciples(): Promise<Principle[]> {
-  const data = manifestoCache ?? await getManifestData();
+  const data = await getManifestData();
   return data.principles;
 }
 
 export async function getStory(): Promise<StorySection[]> {
-  const data = manifestoCache ?? await getManifestData();
+  const data = await getManifestData();
   return data.story;
 }
 
 export async function getProblems(): Promise<ProblemSection[]> {
-  const data = manifestoCache ?? await getManifestData();
+  const data = await getManifestData();
   return data.problems;
 }
 
 export async function getPath(): Promise<PathSection[]> {
-  const data = manifestoCache ?? await getManifestData();
+  const data = await getManifestData();
   return data.path;
 }
 
 export async function getCredits(): Promise<Credit[]> {
-  const data = manifestoCache ?? await getManifestData();
+  const data = await getManifestData();
   return data.credits;
 }

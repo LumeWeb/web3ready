@@ -9,7 +9,7 @@ export { tv };
 /**
  * Type helper for component props
  */
-export type ComponentVariants<T> = VariantProps<T>;
+export type ComponentVariants<T extends (...args: any) => any> = VariantProps<T>;
 
 /**
  * Common base styles for terminal-styled components

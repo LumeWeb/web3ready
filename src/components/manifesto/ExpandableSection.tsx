@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface ExpandableSectionProps {
   title: string;
   summary: string;
@@ -8,10 +6,8 @@ interface ExpandableSectionProps {
 }
 
 export function ExpandableSection({ title, summary, id, children }: ExpandableSectionProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <details className="group border border-terminal rounded-lg bg-deep-black/50 overflow-hidden" open={isOpen} onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}>
+    <details className="group border border-terminal rounded-lg bg-deep-black/50 overflow-hidden">
       <summary className="flex items-center justify-between cursor-pointer p-6 hover:bg-white/5 transition-colors list-none">
         <div className="flex flex-col gap-1">
           <span className="font-mono text-primary text-sm uppercase tracking-widest">{title}</span>

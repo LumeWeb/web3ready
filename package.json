@@ -18,6 +18,8 @@
   "devDependencies": {
     "@fontsource/material-symbols-outlined": "^5.2.33",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
     "astro-seo": "^1.1.0",
     "tailwind-merge": "^3.4.0",
