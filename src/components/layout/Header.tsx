@@ -55,11 +55,9 @@ export function Header({ pathname }: HeaderProps) {
               {item.label}
             </a>
           ))}
-          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-            <Button variant="primary" size="sm" className={button()}>
-              CHALLENGE THE CODE
-            </Button>
-          </a>
+          <Button variant="primary" size="sm" className={button()} href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+            CHALLENGE THE CODE
+          </Button>
         </nav>
 
         <button
@@ -85,11 +83,9 @@ export function Header({ pathname }: HeaderProps) {
                 {item.label}
               </a>
             ))}
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" className={button()}>
-                CHALLENGE THE CODE
-              </Button>
-            </a>
+            <Button variant="primary" size="sm" className={button()} href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+              CHALLENGE THE CODE
+            </Button>
           </nav>
         </div>
       )}
