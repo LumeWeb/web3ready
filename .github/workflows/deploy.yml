@@ -6,6 +6,17 @@ on:
       - closed
     branches:
       - develop
+    paths:
+      - 'src/content/**'
+      - 'src/pages/**'
+      - 'src/components/**'
+      - 'src/styles/**'
+      - 'src/config/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'tailwind.config.mjs'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
