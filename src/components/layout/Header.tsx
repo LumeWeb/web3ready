@@ -1,7 +1,7 @@
 import { tv, cn } from 'tailwind-variants';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { navigation, type NavItem } from '@/config/navigation';
+import { navigation, GITHUB_URL, type NavItem } from '@/config/navigation';
 
 const header = tv({
   slots: {
@@ -55,7 +55,7 @@ export function Header({ pathname }: HeaderProps) {
               {item.label}
             </a>
           ))}
-          <Button variant="primary" size="sm" className={button()}>
+          <Button variant="primary" size="sm" className={button()} href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
             CHALLENGE THE CODE
           </Button>
         </nav>
@@ -83,7 +83,7 @@ export function Header({ pathname }: HeaderProps) {
                 {item.label}
               </a>
             ))}
-            <Button variant="primary" size="sm" className={button()}>
+            <Button variant="primary" size="sm" className={button()} href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               CHALLENGE THE CODE
             </Button>
           </nav>
